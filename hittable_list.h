@@ -32,7 +32,7 @@ bool hittable_list::hit(const ray& r, double t_min, double t_max, hit_record& re
     for(const auto& object : objects){
         if(object->hit(r, t_min, closest_so_far, temp_rec)){
             hit_anything = true;
-            closest_so_far = temp_rec.t;
+            closest_so_far = temp_rec.t; //使用最近的作为最远的距离, 显示在图中就是前面的球，挡住了后面的球
             rec = temp_rec;
         }
     }
